@@ -8,7 +8,7 @@ public class Problem3 {
             System.out.println(e.getMessage());
             return -1;
         }
-        int answer = 0;
+        int answer = clapCalculate(number);
         return answer;
     }
     private static void inputCheck(int number) throws IllegalArgumentException{
@@ -17,6 +17,14 @@ public class Problem3 {
         }
     }
     public static int clapCalculate(int number){
-
+        int answer = 0;
+        for(int i=1; i<=number ;i++){
+            for(int k=0; k<String.valueOf(i).length() ; k++){
+                if(String.valueOf(i).charAt(k)=='3' || String.valueOf(i).charAt(k)=='6' ||
+                        String.valueOf(i).charAt(k)=='9')
+                    answer++;
+            }
+        }
+        return answer;
     }
 }
