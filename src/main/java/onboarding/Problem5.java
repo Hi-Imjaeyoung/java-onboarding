@@ -1,6 +1,7 @@
 package onboarding;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Problem5 {
@@ -12,7 +13,7 @@ public class Problem5 {
             System.out.println(e.getMessage());
             return Collections.emptyList();
         }
-        List<Integer> answer = Collections.emptyList();
+        List<Integer> answer = calculate(money);
         return answer;
     }
     private static void checkInput(int input) throws IllegalArgumentException{
@@ -21,6 +22,11 @@ public class Problem5 {
         }
     }
     public static List<Integer> calculate(int money){
-
+        List<Integer> answer = new LinkedList<>();
+        for(int nowPaper : papers){
+            answer.add(money/nowPaper);
+            money = money % nowPaper;
+        }
+        return answer;
     }
 }
