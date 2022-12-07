@@ -10,8 +10,10 @@ public class Problem4 {
         String answer = "";
         return answer;
     }
-    private static void checkInput(){
-
+    private static void checkInput(String word) throws IllegalArgumentException{
+        if(word.length()<1 || word.length()>1000){
+            throw new IllegalArgumentException("1이상 1000이하의 문자열을 입력해주새요");
+        }
     }
     public static String makePassword(){
 
