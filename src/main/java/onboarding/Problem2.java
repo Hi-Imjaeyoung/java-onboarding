@@ -47,9 +47,11 @@ public class Problem2 {
             if(crytogramChars[right]==crytogramChars[left]){
                 crytogramChars[right] = '-';
                 crytogramChars[left] = '-';
+                left--;
+                right++;
+            }else {
+                break;
             }
-            left--;
-            right++;
         }
     }
 }
