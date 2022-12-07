@@ -34,10 +34,10 @@ public class Problem4 {
     public static String convert(char word){
         if(word>=VALUE_UPPER_A && word <= VALUE_UPPER_Z){
             int scale = word-65;
-            return String.valueOf(Character.toLowerCase((char)90-scale));
+            return String.valueOf((char)(90-scale));
         }{
             int scale = word-97;
-            return String.valueOf(Character.toUpperCase((char)122-scale));
+            return String.valueOf((char)(122-scale));
         }
     }
 }
