@@ -6,7 +6,7 @@ public class Problem2 {
             inputCheck(cryptogram);
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
-            return "";
+            return "ERROR";
         }
         String answer = "answer";
         return answer;
@@ -15,12 +15,12 @@ public class Problem2 {
         if(crytogram.length()==0 || crytogram.length()>1000){
             throw new IllegalArgumentException("1에서 1000자리 사이의 문자를 입력해주세요,");
         }
-        if(crytogram.replaceAll("^[a-z]","").length() != crytogram.length()){
+        if(crytogram.replaceAll("[^a-z]","").length() != crytogram.length()){
             throw new IllegalArgumentException("알파벳 소문자만 입력해주세요.");
         }
     }
     public static String findPair(){
-
+        return "";
     }
     private static void findOtherPair(){
 
