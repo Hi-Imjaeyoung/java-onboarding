@@ -1,13 +1,18 @@
 package onboarding;
 
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
         try{
-
-        }catch{
-
+            for(List<String> form: forms){
+                checkInput(form);
+            }
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return Collections.emptyList();
         }
         List<String> answer = List.of("answer");
         return answer;
@@ -30,7 +35,15 @@ public class Problem6 {
     }
 
     public static List<String> makeToken(String nickname){
-
+        List<String> tokens = new LinkedList<>();
+        if(nickname.length()<=2){
+            tokens.add(nickname);
+            return tokens;
+        }
+        for(int i=0;i<nickname.length()-1;i++){
+            tokens.add(nickname.substring(i,i+2));
+        }
+        return tokens;
     }
 
     public static void sortEmail(Set<String> emails){
