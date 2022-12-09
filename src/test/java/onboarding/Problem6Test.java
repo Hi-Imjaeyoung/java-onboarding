@@ -27,4 +27,11 @@ class Problem6Test {
             Problem6.checkInput(List.of("abcd@email.com","나는야멋진재영이고요지금무척졸립니다요빨리자자"));
         });
     }
+    @DisplayName("토큰 생성 테스트")
+    @Test
+    void MAKE_TOKEN(){
+        assertThat(Problem6.makeToken("재영이")).isEqualTo(List.of("재영","영이"));
+        assertThat(Problem6.makeToken("재영")).isEqualTo(List.of("재영"));
+        assertThat(Problem6.makeToken("쿨재영이")).isEqualTo(List.of("쿨재","재영","영이"));
+    }
 }
