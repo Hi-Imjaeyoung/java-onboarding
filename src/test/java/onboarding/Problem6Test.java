@@ -1,6 +1,9 @@
 package onboarding;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,5 +36,16 @@ class Problem6Test {
         assertThat(Problem6.makeToken("재영이")).isEqualTo(List.of("재영","영이"));
         assertThat(Problem6.makeToken("재영")).isEqualTo(List.of("재영"));
         assertThat(Problem6.makeToken("쿨재영이")).isEqualTo(List.of("쿨재","재영","영이"));
+    }
+    @DisplayName("정렬 테스트")
+    @Test
+    void SORT_TEST(){
+        Set<String> set = new HashSet<>();
+        set.add("하");
+        set.add("파");
+        set.add("카");
+        set.add("가");
+        System.out.println(set.toString());
+        assertThat(Problem6.sortEmail(set)).containsExactly("가","카","파","하");
     }
 }
