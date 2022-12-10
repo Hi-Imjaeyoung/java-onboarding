@@ -1,9 +1,8 @@
 package onboarding;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
         try{
@@ -14,7 +13,12 @@ public class Problem6 {
             System.out.println(e.getMessage());
             return Collections.emptyList();
         }
-        List<String> answer = List.of("answer");
+        HashMap<String,String> tokens = new HashMap<>();
+        Set<String> emails = new HashSet<>();
+        for(List<String> form : forms){
+            compareTokens(form,tokens,emails);
+        }
+        List<String> answer = sortEmail(emails);
         return answer;
     }
     public static void checkInput(List<String> form) throws IllegalArgumentException{
@@ -46,8 +50,21 @@ public class Problem6 {
         return tokens;
     }
 
-    public static void sortEmail(Set<String> emails){
+    public static List<String> sortEmail(Set<String> emails){
+        List<String> answer = new ArrayList<>();
+        emails.stream().sorted().forEach(answer::add);
+        return answer;
+    }
 
+    public static void compareTokens(List<String> form, HashMap<String,String> tokens, Set<String> emails){
+        for(String token :makeToken(form.get(1))){
+            if(tokens.containsKey(token)){
+                emails.add(form.get(0));
+                emails.add(tokens.get(token));
+            }else{
+                tokens.put(token,form.get(0));
+            }
+        }
     }
 
 }
