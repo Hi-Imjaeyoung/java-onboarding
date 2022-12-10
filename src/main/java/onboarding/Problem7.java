@@ -52,7 +52,11 @@ public class Problem7 {
         }
         return score;
     }
-    public static void sortRecommendFriends(){
-
+    public static void sortRecommendFriends(HashMap<String,Integer> score,List<String> visitors,List<String> directFriend){
+        for(String visitor : visitors){
+            if(!directFriend.contains(visitor)){
+                score.put(visitor,score.getOrDefault(visitor,0)+1);
+            }
+        }
     }
 }
