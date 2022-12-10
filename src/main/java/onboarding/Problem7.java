@@ -41,8 +41,16 @@ public class Problem7 {
         }
         return friendship;
     }
-    public static void calculateScoreAtVisitors(){
-
+    public static HashMap<String, Integer> calculateScoreAtVisitors(String user, HashMap<String,List<String>> friendship){
+        HashMap<String,Integer> score = new HashMap<>();
+        for(String DirectFriend : friendship.get(user)){
+            for(String recommendFriend : friendship.get(DirectFriend)){
+                if(!friendship.get(user).contains(recommendFriend)){
+                    score.put(recommendFriend,score.getOrDefault(recommendFriend,0)+10);
+                }
+            }
+        }
+        return score;
     }
     public static void sortRecommendFriends(){
 
